@@ -16,7 +16,7 @@ public class WriteExcelData {
 
 	public static void WriteExcel(String FilePath, String FileName, String SheetName) throws IOException {
 		
-		File file = new File(FilePath+ "\\" +FileName);
+		File file = new File(System.getProperty("user.dir")+"\\"+FilePath+ "\\" +FileName);
 		
 		FileInputStream InputStream = new FileInputStream(file);
 		Workbook wb = null;

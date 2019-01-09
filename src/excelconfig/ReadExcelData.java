@@ -26,7 +26,7 @@ public class ReadExcelData {
 		//Map for storing the data from excel
 		HashMap<String, String> ExcelData = new HashMap<String, String>();
 		
-		File file = new File(FilePath + "\\" + FileName);
+		File file = new File(System.getProperty("user.dir")+"\\"+FilePath + "\\" + FileName);
 		FileInputStream inputStream = new FileInputStream(file);
 		Workbook wb = null;
 
