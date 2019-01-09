@@ -39,14 +39,13 @@ public class ReadExcelData {
 
 		// To get the sheet where data has to be read from
 		Sheet sheet = wb.getSheet(SheetName);
-
+		int count=0;
 		for (int i = 0;i<sheet.getLastRowNum(); i++) {
 
 			// To get the row
 			Row row = sheet.getRow(i);
 			
 			//System.out.println("row : "+row.getCell(0).getStringCellValue());
-			
 			for(int j=1;j<row.getLastCellNum();j++) {
 				
 				ExcelData.put(row.getCell(0).getStringCellValue(), row.getCell(j).getStringCellValue());
@@ -55,6 +54,7 @@ public class ReadExcelData {
 				if(row.getCell(j).getStringCellValue() != null) {
 					
 					System.out.println(row.getCell(0).getStringCellValue()+" --> "+row.getCell(j).toString());
+					count++;
 				}else {
 					continue;
 				}
@@ -64,7 +64,12 @@ public class ReadExcelData {
 		
 		inputStream.close();
 		
-		System.out.println("Data is successfully (Abhishek) read from the sheet..!!");
+		if(count>0) {
+			System.out.println("Data is successfully read from the sheet..!!");
+		}else {
+			System.out.println("Please make sure sheet is not blank");
+		}
+		
 		
 		for(Map.Entry<String, String> Map_Data : ExcelData.entrySet()) {
 			

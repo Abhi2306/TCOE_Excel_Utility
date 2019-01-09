@@ -37,11 +37,15 @@ public class WriteExcelData {
 		
 		Row newRow = sheet.createRow(countOfRow+1);
 		
+		int count=0;
+		
 		for(int i=0;i<row.getLastCellNum();i++) {
 			
 			Cell cell = newRow.createCell(i);
 			
-			cell.setCellValue("Abhi"+i);
+			cell.setCellValue("Abhi_"+i);
+			
+			count++;
 		}
 		
 		InputStream.close();
@@ -52,7 +56,11 @@ public class WriteExcelData {
 		
 		outputStream.close();
 		
-		System.out.println("Data is successfully written on the sheet..!!");
+		if(count>0) {
+			System.out.println("Data is successfully written on the sheet..!!");
+		}else {
+			System.out.println("Please check the code..!!");
+		}
 		
 	}
 }
